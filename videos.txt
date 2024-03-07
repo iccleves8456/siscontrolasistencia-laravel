@@ -1,0 +1,213 @@
+sistema de control de asistencia   
+laravel/laravel (v10.3.3)
+Using version ^4.4 for laravel/ui
+
+base de datos utf8mb4_spanish_ci
+https://laravel.com/docs/10.x
+
+01 Presentación al curso de LARAVEL 10 - Sistema de control de asistencia   https://www.youtube.com/watch?v=o7sypEKD5vI&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=1
+02 Hola mundo en el curso de LARAVEL 10  https://www.youtube.com/watch?v=XJxWkX5Ckbc&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=2   					 
+	composer create-project laravel/laravel siscontroldeasistencia
+03 Autenticación LOGIN/REGISTRO en el curso de LARAVEL 10   https://www.youtube.com/watch?v=9gwkhPcHHus&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=3  
+	composer require laravel/ui    
+	php artisan ui bootstrap
+	php artisan ui bootstrap --auth
+04 Migración de tablas a la BASE de DATOS  https://www.youtube.com/watch?v=l5HuhnBbu9M&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=4
+	la pagina de inicio es localhost/siscontroldeasistencia/public/login
+	  en config/dadatabase.php  en la configuracion de mysql   'engine' => 'InnoDB',
+	 npm run build
+05 Como INSTALAR ADMINLTE dashboard en el curso de LARAVEL 10	 https://www.youtube.com/watch?v=9KasFbcps9w&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=5
+    se baja el codigo fuente y de alli se copia la carpeta dist y plugins en la carpeta public
+	se copial archivo started.hml en resources/view/index_blade.php y se modifica el archivo routes/www
+06 Como RESTRINGIR REGISTER en dashboard  https://www.youtube.com/watch?v=wJGSnPnK8Vg&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=6
+	cambiar en homeController  el nombre de la vista home por index   o cambiar en auth/loginController en la linea de redireccion se escribe '/'
+07 Personalizar el PANEL DASHBOARD  https://www.youtube.com/watch?v=pVK7xfMynz4&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=7
+08 PLANTILLAS BLADE  https://www.youtube.com/watch?v=1pkb8iGbB8Y&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=8
+09 Vistas con las plantillas de BLADE    https://www.youtube.com/watch?v=ameAewObyC4&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=9
+10 Respondiendo preguntas en el curso de LARAVEL 10   https://www.youtube.com/watch?v=ameAewObyC4&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=10
+11 Creación de tabla y migración  https://www.youtube.com/watch?v=QpEAoJtsssc&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=11
+	php artisan make:migration create_miembros_table   (todo minuscula y plural)
+	php artisan migrate
+12 Creación del MODELO MVC  https://www.youtube.com/watch?v=Gsz9wmpYftg&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=12
+	php artisan make:model Miembro   (prmiera letra en mayuscula y en singular)
+13 Revertir migración con ROLLBACK  https://www.youtube.com/watch?v=aMasm2HSI58&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=13
+	php artisan migrate:rollback    devuelve la ultima migracion
+14 CONTROLADORES   https://www.youtube.com/watch?v=yKExoEgRsHc&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=14
+	php artisan make:controller MiembroController   (prmiera letra en mayuscula y en singular) mas palabra Controller
+15 CRUD - Read lectura de datos  	https://www.youtube.com/watch?v=h60lwf8MgK0&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=15
+16 Correr SEEDER para sembrar DATOS  https://www.youtube.com/watch?v=5qSzgjtHPiY&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=16
+	php artisan make:seeder MiebroSeeder   (nombre del modelo, (prmiera letra en mayuscula y en singular))
+	editar en database el archivo, adicionar los campos  y en el archivo DatabaseSeeder  adicional el seeder en la seccion call  MiembroSeeder::class,
+	        return [
+            'nombre_apellido'=> Str::random(100),
+            'direccion'=> Str::random(50),
+            'telefono' => random_int(1000000,1500000),
+            'fecha_nacimiento' => '2020-12-15',
+            'genero' => 'MASCULINO',
+            'email' => Str::random(10).'@gmail.com',
+            'estado' => '1',
+            'ministerio' => 'PASTORAL',
+            'fotografia' => 'foto.jpg',
+            'fecha_ingreso' => '2024-02-19',
+        ];
+	php artisan db:seed
+17 Correr FACTORY para crear DATOS  https://www.youtube.com/watch?v=CqBkiTIFv1A&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=17
+	php artisan make:factory MiembroFactory
+	ejecuta lo del seeder
+	factory y seeder
+18 Cargar DATOS de la TABLA https://www.youtube.com/watch?v=hgVsrvqPmPM&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=18
+19 Utilizar DataTables  https://www.youtube.com/watch?v=UDnnaAG8xPQ&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=19
+20 Poner DATATABLES en español  https://www.youtube.com/watch?v=FGKMBdy7r2I&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=20
+21 FORMULARIO para registrar datos  https://www.youtube.com/watch?v=vC_hO4CLE1E&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=21
+22 Respondiendo comentarios  https://www.youtube.com/watch?v=ZgbWK-AKMM4&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=22
+23 Validando el formulario  https://www.youtube.com/watch?v=aKFxh2MlJt4&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=23
+24 Request Store del formulario  https://www.youtube.com/watch?v=LD7btJcf3jQ&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=24
+25 CRUD Create guardar datos en la tabla  https://www.youtube.com/watch?v=qfl-AWdP9UA&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=25
+   las imagenes se guardan en storage/app/public y la carpeta que se escriba
+26 Validación de datos desde el Backend https://www.youtube.com/watch?v=CkRtLVAnUPw&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=26
+27 Mostrar los ERRORES en pantalla  https://www.youtube.com/watch?v=6SKsslLPu_g&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=27
+28 Cambiar el idioma de los mensajes   https://www.youtube.com/watch?v=I3RoofkarkI&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=28
+	php artisan lang:publish
+	crear la carpeta de  lang/es  consultar por google lang laravel y copiar el contenido de los 4 archivos
+	editar config/app  y en el atributo locale y  fallback_locale colocar es
+29 Como instalar SWEETALERT2 sin morir en el intento  https://www.youtube.com/watch?v=XSw27Dxj3CA&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=29
+30 Función SHOW para mostrar datos de un registro  https://www.youtube.com/watch?v=4yHZKkdO7I0&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=30
+31 Buscar registro de la tabla de la base de datos  https://www.youtube.com/watch?v=KgBF6KC6J-0&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=31
+32 Cargar datos de la tabla de la base de datos  https://www.youtube.com/watch?v=mGx5pxCjpmI&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=32
+33 Cargar fotografia del registro de la base de datos  https://www.youtube.com/watch?v=nnmdxtjtyXU&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=33
+	php artisan storage:link   colocar publico la carperta de almacenamiento
+34 Función EDITAR datos  https://www.youtube.com/watch?v=fYgTS2FDJ5w&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=34
+	value="{{old('fotografia')}}"
+35 Función OLD para no perder los datos del formulario https://www.youtube.com/watch?v=N9LfoUunZKY&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=35
+36 Cargar datos en el formulario para UPDATE  https://www.youtube.com/watch?v=pYiogoXxg2Y&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=36
+37 Controller UPDATE  https://www.youtube.com/watch?v=8OneLJtF-pg&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=37
+	use Illuminate\Support\Facades\Storage;
+	Storage::delete('public/'.$miembro->fotografia);
+38 Controller DELETE   https://www.youtube.com/watch?v=5K-_1Z0eujY&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=38
+39 Usar FAKE para generar datos reales  https://www.youtube.com/watch?v=YHd0_ukqzmI&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=39
+	github.com/fzaninotto/faker
+	database/factory/MiembroFactory
+	return [
+            'nombre_apellido'=> fake()->name,
+            'direccion'=> fake()->address,
+            'telefono' => random_int(1000000,1500000),
+            'fecha_nacimiento' => fake()->date($format = 'Y-m-d', $max = 'now'),
+            'genero' => 'MASCULINO',
+            'email' => fake()->unique()->safeEmail(),
+            'estado' => '1',
+            'ministerio' => 'PASTORAL',
+            'fotografia' => 'foto.jpg',
+            'fecha_ingreso' => fake()->date($format = 'Y-m-d'),
+        ];
+		
+	php artisan db:seed
+40 Módulos ministerios   https://www.youtube.com/watch?v=MPrpGyufhVE&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=40
+	php artisan make:model Ministerio -mcr     (crear todo lo necesario)
+	se edita en database el archivo para crear la estructura de la tabla
+	php artisan migrate
+	
+	php artisan route:list   para visualizar lsa rutas
+	habilitar las rutas
+	
+	CKeditor  (herramienta)
+41 CRUD completo de los ministerios   https://www.youtube.com/watch?v=gK6o5bx5ems&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=41
+42 Modificando el DASHBOARD  https://www.youtube.com/watch?v=ct446LP0yU0&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=42
+	php artisan make:controller AdminController
+43 Módulo USUARIOS  https://www.youtube.com/watch?v=0fRgls0cG1Y&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=43
+  se actualiza la tabla database/migrate/user adicionan los campos
+  actualizar modelos/user adicionando los campos
+  modificar el controlador validando y adicionando los campos
+  php artisan db:seed  para generar registros
+  php artisan make:controller UserController -r   se crea controlador para manejar usuarios
+  crear las vistas
+  habilitar la ruta web
+  habilitar el modulo en el admin
+  
+44 CRUD completo de los USUARIOS https://www.youtube.com/watch?v=6mMlwN11v9Y&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=44
+'timezone' en el archivo config/app.php
+45 Relacionar TABLAS https://www.youtube.com/watch?v=RyDL7ckrLJw&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=45
+	php artisan make:model Asistencia -mcr    (m:migracion, cr:controlador con todos las funciones
+	
+	Schema::create('asistencias', function (Blueprint $table) {
+            $table->id();
+            $table->date('fecha');
+            $table->bigInteger('miembro_id')->unsigned();
+            $table->timestamps();
+            $table->foreign('miembro_id')->references('id')->on('miembros')->onDelete('cascade');
+        });
+		
+		php artisan migrate
+46 Generar CRUD completo de ASISTENCIAS   https://www.youtube.com/watch?v=3b9T-hvfHcY&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=46
+	php artisan migrate:rollback  devuelve la migracion  borra la tabla asistencia
+	php artisan make:migration create_asistencias_table  solo crea la migracion para asistencia
+	php artisan migrate   crea la migracion
+	
+	instalar paquete generador de crud
+	URL:    packagist.org/packages/ibex/crud-generator
+	
+	composer require ibex/crud-generator --dev
+	php artisan vendor:publish --tag=crud
+	
+	php artisan make:crud {table_name}
+	php artisan make:crud asistencia
+	
+	Route::resource('/asistencias', App\Http\Controllers\AsistenciaController::class);		crear la ruta en web
+	en layout/admin incorporar el modulo asistencia
+47 AJUSTES del CRUD ASISTENCIAS  https://www.youtube.com/watch?v=2ZzAEEhbCVg&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=47
+ en index    @extends('layouts.admin')  hacerlo en todas las plantillas edit, create
+ borar la seccion @section('template_title')
+ en el controlador para opcion create      
+	$miembro = Miembro::pluck('nombre_apellido','id');
+	return view('asistencia.create', compact('asistencia','miembro'));
+	
+	modificar todas las vistas
+48 REPORTES con DOMPDF  https://www.youtube.com/watch?v=Oxfd6HkNxME&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=48
+	github.com/barryvdh/laravel-dompdf
+	composer require barryvdh/laravel-dompdf
+	adicionar en config/app.php  $app->register(\Barryvdh\DomPDF\ServiceProvider::class);  al final del archivo en las alias y borrar el ;
+	
+	
+	adicionar en el controlador  
+	use Barryvdh\DomPDF\Facade\Pdf;
+	use Illuminate\Support\Facades\App;
+	
+	
+	crear opcion en menu y vista   y copiar de la index
+	en el controlador copiar la funcion index y renombrarla como report
+	adicionar la ruta en web
+	
+49 REPORTE entre 2 FECHAS  https://www.youtube.com/watch?v=PEv_Ok1EkNA&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=49
+50 ROLES Y PERMISOS  https://www.youtube.com/watch?v=Q-r-TFTXcgU&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=50
+   spatie.be/docs/laravel-permission/v6/installation-laravel
+   en el archivo de config/app.php:
+			'providers' => [
+				// ...
+				Spatie\Permission\PermissionServiceProvider::class,
+			];
+			
+	php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+	php artisan optimize:clear
+	php artisan migrate
+	 // The User model requires this trait
+	 use Spatie\Permission\Traits\HasRoles;
+	 
+     use HasRoles;  // dentro de la clase public del modelo
+51 SEEDER roles y permisos    https://www.youtube.com/watch?v=6HR_k_UM1SU&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=51
+	php artisan make:seed RoleSeeder
+	en RoleSeeder.php   se agregan los roles que va a manejar el sistema
+	ajustar databaseSeeder  para relacionar el nuevo RoleSeeder
+	php artisan migrate:fresh --seeder   // borra y actualiza las tablas
+	entrar de manera directa a la vista register  y registrarse
+	
+52 Asignar PERMISOS a las RUTAS  https://www.youtube.com/watch?v=LVdbBGFgQcU&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=52
+	php artisan db:seed
+	asignar los roles en database/seeder/RoleSeeder.php
+	
+53 NAVEGANDO CON LOS ROLES Y PERMISOS  https://www.youtube.com/watch?v=CtV4tXHLvW8&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=53
+
+54 SEEDER USUARIOS por defecto  https://www.youtube.com/watch?v=b-dofj2AR0c&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=54
+55 COMPARTIENDO el CÓDIGO FUENTE del curso de LARAVEL 10 Sistema de control de asistencia  https://www.youtube.com/watch?v=TAUQNNwuA3E&list=PLgLkBkgzqH2CH3vPCcMdkCNW152LBvJuN&index=55
+56
+  
+  
+  https://ssyoutube.com/es58ex/youtube-to-mp4
